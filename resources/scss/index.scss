@@ -1,0 +1,198 @@
+.spacing {
+    padding: 13px;
+}
+
+#shadowBox {
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.2);
+    /* Black w/opacity/see-through */
+    border: 3px solid;
+}
+
+.rainbow {
+    text-align: start;
+    text-decoration: underline;
+    font-size: 32px;
+    font-family: monospace;
+    letter-spacing: 2px;
+}
+.rainbow_text_animated {
+    background: linear-gradient(to right, #6666ff, #0099ff , #00ff00, #ff3399, #6666ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: rainbow_animation 6s ease-in-out infinite;
+    background-size: 400% 100%;
+}
+
+$headerheight: 80px;
+$navigationwidth: 225px;
+
+body {
+    height: 100vh;
+    width: 100vw;
+    margin: 0 !important;
+}
+
+#app {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: $navigationwidth 1fr;
+    grid-template-rows: $headerheight 1fr;
+
+}
+
+.header { 
+    height: $headerheight;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.navigation {
+    // width: $navigationwidth;
+    // display: inline-block;
+    // height: calc(100% - $headerheight);
+}
+
+.content {
+    // width: calc(100% - #{$navigationwidth});
+    // display: inline-block;
+    // height: calc(100% - $headerheight);
+}
+
+.dropbtn {
+    background-color: #ddcb00;
+    color: white;
+    padding: 16px;
+    font-size: 18px;
+    border: none;
+    min-width: 160px;
+    border-radius: 5px;
+  }
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #e6ff94;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 5px;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {background-color: #d6ff07; border-radius: 5px;}
+  
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  .dropdown:hover .dropbtn {background-color: #78731b;}
+
+  .dubults {
+    display: grid;
+    justify-content: space-evenly;
+  }
+
+  .hapraksts {
+    text-align: center;
+    padding-left: 40px;
+    padding-right: 40px;
+    font-size: 20px;
+  }
+
+  .dapraksts {
+    text-align: center;
+    padding: 10px 30px 20px 30px;
+    font-size: 20px;
+  }
+  
+  #center {
+    text-align: center;
+  }
+
+  .registrationbtn {
+    background-color: #3fb2ff;
+    min-height: 53px;
+    min-width: 100px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.5s;
+  }
+
+  .registrationbtn:hover {
+    background-color: rgb(78, 78, 205);
+  }
+
+  .btn {
+    background-color: #3fb2ff;
+    min-height: 53px;
+    min-width: 160px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.5s;
+  }
+
+  .btn:hover {
+    background-color: rgb(78, 78, 205);
+  }
+
+  .navspacing {
+    padding-bottom: 8px;
+    padding-left: 11px;
+  }
+
+  .flex {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .paddingl {
+    padding-left: 100px;
+  }
+
+  .paddingt {
+    padding-top: 30px;
+  }
+
+  #even1 {
+    padding-left: 30px;
+  }
+
+  .air {
+    float:  right;
+  }
+
+  .center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 20px;
+  }
+
+  .floatr {
+    float: right;
+  }
+
+@keyframes rainbow_animation {
+    0%,100% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 100% 0;
+    }
+}
