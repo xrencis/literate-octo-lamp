@@ -13,4 +13,17 @@ class DataController extends Controller
             "versions" => Version::get(),
         ]);
     }
+
+    public function create(Request $request)
+    {
+        $item = new Version();
+        $item->name = $request->name;
+        $item->save();
+    }
+
+    public function kill(Request $request)
+    {
+        $item = Version::findOrFail($request->id);
+        $item->delete();
+    }
 }

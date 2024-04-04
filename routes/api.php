@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/versions', [DataController::class, "versions"]);
+Route::post('/create', [DataController::class, "create"]);
+Route::post('/kill', [DataController::class, "kill"]);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

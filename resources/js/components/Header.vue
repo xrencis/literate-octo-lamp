@@ -1,11 +1,18 @@
 <template>
     <div class="header">
+        <input type="text" v-model="name"> <button @click="saveNewVersion">Save</button>
       <div id="nosaukums" class="rainbow rainbow_text_animated">TheDoc!</div>
       <div id="version" class="dropdown">
         <button class="dropbtn">Version</button>
     <div class="dropdown-content">
 
-        <router-link v-for="(version, idx) in versions" :to="`/${version.id}/`">{{ version.name }}</router-link>
+        <template v-for="(version, idx) in versions">
+            <router-link  :to="`/${version.id}/`">
+                {{ version.name }} 
+            </router-link>
+
+            <button @click="onDelete(version.id)">D</button>
+        </template>
 
         <!-- <router-link to="/15/">Iphone 15</router-link>
         <router-link to="/14/">Iphone 14</router-link>
@@ -22,14 +29,16 @@
 </template>
 <script>
 import axios from "axios"
-import { ref } from "vue";
+import { reactive, ref } from "vue";
 
 const versions = ref([]);
+const name = ref('');
 
 export default {
     data() {
         return {
             versions,
+            name,
         }
     },
     created() {
@@ -52,6 +61,20 @@ export default {
             .finally(function () {
                 // always executed
             });
+        },
+
+        saveNewVersion(){
+            this.$nextTick(() => {
+                console.log(name);
+                axios.post('/api/create', { name: name.value }).then(() => {
+                    this.getdata();
+                });
+            });
+        },
+        async onDelete(id){
+            await axios.post('/api/kill', { id });
+
+            this.getdata();
         }
     },
 };
